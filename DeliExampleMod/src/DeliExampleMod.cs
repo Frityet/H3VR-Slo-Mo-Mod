@@ -2,8 +2,7 @@
 using FistVR;
 using HarmonyLib;
 using UnityEngine;
-
-//using Valve.VR;
+using Valve.VR;
 
 namespace H3VR.Slomo
 {
@@ -25,11 +24,11 @@ namespace H3VR.Slomo
         {
            // Logger.LogInfo("Slowing Down");
             Debug.Log("Slowing Down");
-            /*
+            
             Time.timeScale -= 0.1f;
             Time.fixedDeltaTime = Time.timeScale / SteamVR.instance.hmd_DisplayFrequency;
             Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
-            */
+            
             return false;
         }
         
@@ -40,23 +39,23 @@ namespace H3VR.Slomo
             Debug.Log("Speeding Up");
             //Logger.LogInfo("Speeding Up");
             
-            /*
+            
             Time.timeScale += 0.1f;
             Time.fixedDeltaTime = Time.timeScale / SteamVR.instance.hmd_DisplayFrequency;
             Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
-            */
+            
             
             return false;
 
         }
         
-        /*
+        
         [HarmonyPatch(typeof(AudioSource), "pitch", MethodType.Setter)]
         [HarmonyPrefix]
         public static void FixPitch(ref float value)
         {
             value *= Time.timeScale;
         }
-        */
+        
     }
 }

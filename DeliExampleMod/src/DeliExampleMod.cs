@@ -1,21 +1,62 @@
 ﻿using Deli;
+using FistVR;
+using HarmonyLib;
+using UnityEngine;
 
-namespace DeliExampleMod
+//using Valve.VR;
+
+namespace H3VR.Slomo
 {
-    // Deli Mods are just mono behaviours that get added to a global game object when the game first starts.
-    // Generally you want to put your setup code in Awake()
-    public class DeliExampleMod : DeliBehaviour
+    public class SloMoMod : DeliBehaviour
     {
         private void Awake()
         {
-            // Hello, world!
-            Logger.LogInfo("Hello, world!");
+            Logger.LogInfo("Started H3VR Slo Mo Mod");
+            Logger.LogWarning("https://media.discordapp.net/attachments/705223076652253302/800139596573704192/EFK38CWXsAM2sAM.png");
 
-            // Fetch and log the example resource
-            var textResource = Resources.Get<string>("Resources/ExampleTextResource.txt").Unwrap();
-            Logger.LogInfo("Text resource contents: " + textResource);
+            var patch = new Harmony("SloMoMod");
+            patch.PatchAll(typeof(SloMoMod));
             
-            // TODO: Put the rest of your setup code here
         }
+
+        [HarmonyPatch(typeof(FVRMovementManager), "TurnCounterClockWise")]
+        [HarmonyPrefix]
+        static bool SlowDown()
+        {
+           // Logger.LogInfo("Slowing Down");
+            Debug.Log("Slowing Down");
+            /*
+            Time.timeScale -= 0.1f;
+            Time.fixedDeltaTime = Time.timeScale / SteamVR.instance.hmd_DisplayFrequency;
+            Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+            */
+            return false;
+        }
+        
+        [HarmonyPatch(typeof(FVRMovementManager), "TurnClockWise")]
+        [HarmonyPrefix]
+        static bool SpeedUp()
+        {
+            Debug.Log("Speeding Up");
+            //Logger.LogInfo("Speeding Up");
+            
+            /*
+            Time.timeScale += 0.1f;
+            Time.fixedDeltaTime = Time.timeScale / SteamVR.instance.hmd_DisplayFrequency;
+            Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+            */
+            
+            return false;
+
+        }
+        
+        /*
+        [HarmonyPatch(typeof(AudioSource), "pitch", MethodType.Setter)]
+        [HarmonyPrefix]
+        public static void FixPitch(ref float value)
+        {
+            value *= Time.timeScale;
+        }
+        */
     }
 }

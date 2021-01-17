@@ -1,12 +1,12 @@
 {
   /* Your mod name and authors */
-  "name": "Deli Example Mod",
+  "name": "H3VR Slo Mo mod",
   "authors": [
-    "Nathan Gill"
+    "Frityet"
   ],
   
   /* Your mod GUID and version */
-  "guid": "deli_example_mod",
+  "guid": "net.frityet.slomo",
   "version": "1.0.0.0",
   
   /**
@@ -24,7 +24,6 @@
    * Assets are resolved top down, so generally you'll want your assembly first.
    */
   "runtime": {
-    "DeliExampleMod.dll": "assembly",
-    "Resources/ExampleAsset1.txt": "example_asset"
+    "DeliExampleMod.dll": "assembly"
   }
 }

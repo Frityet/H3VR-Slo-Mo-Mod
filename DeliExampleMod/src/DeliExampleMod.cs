@@ -56,6 +56,15 @@ namespace H3VR.Slomo
         {
             value *= Time.timeScale;
         }
-        
+
+
+/*
+        public static void PlayAudio(AudioClip Audio, float pitch = 1f)
+        {
+            AudioSource source = new();
+
+
+        }
+*/
     }
 }

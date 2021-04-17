@@ -1,29 +1,16 @@
 {
-  /* Your mod name and authors */
-  "name": "H3VR Slo Mo mod",
+  "name": "Slo Mo Mod",
   "authors": [
     "Frityet"
   ],
-  
-  /* Your mod GUID and version */
-  "guid": "net.frityet.slomo",
-  "version": "1.0.0.0",
-  
-  /**
-   * Dependencies are a Dict<string,string> of mod GUID, version.
-   * Newer versions of a dependency will be okay as long as it's
-   * still the same major version (e.g deli.core 0.* would be allowed here and 1.* would not)
-   */
-  "dependencies": {
-    "deli.core": "0.0.0.0"
-  },
-  
-  /**
-   * Assets are another Dict<string,string> of paths and loader names
-   * The path can be either a file, folder or any format valid for use with the given loader
-   * Assets are resolved top down, so generally you'll want your assembly first.
-   */
-  "runtime": {
-    "DeliExampleMod.dll": "assembly"
+  "guid": "net.frityet.slomomod",
+  "source_url": "https://github.com/Frityet/H3VR-Slo-Mo-Mod/",
+  "version": "1.0.0",
+  "require": "0.3.0",
+  "dependencies": {},
+  "assets": {
+    "setup": {
+      "DeliExampleMod.dll": "deli:assembly"
+    }
   }
 }

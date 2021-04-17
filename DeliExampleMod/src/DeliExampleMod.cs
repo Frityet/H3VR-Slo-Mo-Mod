@@ -1,5 +1,5 @@
 ﻿using BepInEx.Configuration;
-using Deli;
+using Deli.Setup;
 using FistVR;
 using HarmonyLib;
 using UnityEngine;
